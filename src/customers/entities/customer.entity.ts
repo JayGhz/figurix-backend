@@ -15,6 +15,9 @@ export class Customer {
     @Column()
     adress: string;
 
+    @Column()
+    phone: string;
+
     @OneToOne(() => User, (user) => user.customer)
     @JoinColumn()
     user: User;
