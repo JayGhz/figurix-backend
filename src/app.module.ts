@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import { CustomersModule } from './customers/customers.module';
 import { AuthorsModule } from './authors/authors.module';
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -27,7 +28,8 @@ import { SharedModule } from './shared/shared.module';
     UsersModule,
     CustomersModule,
     AuthorsModule,
-    SharedModule
+    SharedModule,
+    AuthModule
   ],
 
   controllers: [],
