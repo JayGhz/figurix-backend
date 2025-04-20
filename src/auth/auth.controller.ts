@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Req } from '@nestjs/
 import { AuthService } from './auth.service';
 import { SignInDto } from '@/auth/dto/sign-in.dto';
 import { CreateUserDto } from '@/users/dto/create-user.dto';
+import { Auth } from '@/auth/decorators/auth.decorator';
 
 @Controller('auth')
 export class AuthController {
@@ -22,6 +23,7 @@ export class AuthController {
     return this.authService.registerAuthor(createUserDto);
   }
 
+  @Auth()
   @Get('profile')
   getProfile(@Req() req) {
     const {email} = req.user.email;
