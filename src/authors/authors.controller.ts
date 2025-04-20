@@ -7,28 +7,23 @@ import { UpdateAuthorDto } from './dto/update-author.dto';
 export class AuthorsController {
   constructor(private readonly authorsService: AuthorsService) {}
 
-  @Post()
-  create(@Body() createAuthorDto: CreateAuthorDto) {
-    return this.authorsService.create(createAuthorDto);
-  }
-
   @Get()
   findAll() {
     return this.authorsService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.authorsService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAuthorDto: UpdateAuthorDto) {
+  update(@Param('id') id: number, @Body() updateAuthorDto: UpdateAuthorDto) {
     return this.authorsService.update(+id, updateAuthorDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.authorsService.remove(+id);
   }
 }
