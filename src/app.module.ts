@@ -1,6 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module';
+import { CustomersModule } from './customers/customers.module';
+import { AuthorsModule } from './authors/authors.module';
+import { SharedModule } from './shared/shared.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -19,7 +23,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       extra: {
         ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : null,
       }
-    })
+    }),
+    UsersModule,
+    CustomersModule,
+    AuthorsModule,
+    SharedModule
   ],
 
   controllers: [],
